@@ -1,7 +1,7 @@
 const numArray = [];
 
-for (let index = 1; index !== 101; index++) {
-  numArray.push(index++);
+for (let index = 1; index < 101; index++) {
+  numArray.push(index);
 }
 
 function binarySearcher(array, number) {
