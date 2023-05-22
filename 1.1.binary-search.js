@@ -1,7 +1,7 @@
-const numArray = [];
+const array = [];
 
-for (let index = 1; index < 101; index++) {
-  numArray.push(index);
+for (let index = 1; index < 1001; index++) {
+  array.push(index);
 }
 
 function binarySearcher(array, number) {
@@ -12,17 +12,17 @@ function binarySearcher(array, number) {
     const middle = Math.ceil((maxLength + minLength) / 2);
     const possibleNumber = array[middle];
 
+    console.log("possibleNumber is: ", possibleNumber);
+
     if (possibleNumber === number) {
       console.log("find element is: ", number);
       return;
     } else if (possibleNumber < number) {
-      console.log("find element more than: ", possibleNumber);
       minLength = middle + 1;
     } else if (possibleNumber > number) {
-      console.log("find element less than: ", possibleNumber);
       maxLength = middle - 1;
     }
   }
 }
 
-binarySearcher(numArray, 47);
+binarySearcher(array, 47);

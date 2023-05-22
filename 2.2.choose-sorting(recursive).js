@@ -1,4 +1,14 @@
-const array = [5, 23, 1455, 544, 3, 789, 100, 49, 0, 1, 54555, 32, 900, 2];
+function getRandomArray() {
+  let array = []
+
+  for (let index = 0; index < 5000; index++) {
+      array.push(index)
+  }
+
+  return array.sort(() => Math.random() - 0.5)
+}
+
+const array = getRandomArray()
 
 function simpleSorting(array, minIndex = 0) {
   if (minIndex === array.length) {
