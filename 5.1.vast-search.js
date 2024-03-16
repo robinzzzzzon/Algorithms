@@ -22,27 +22,27 @@ friendsList.push({name: 'Theodore', hasGold: false, friendNames: []})
 friendsList.push({name: 'Suzy', hasGold: false, friendNames: []})
 
 function searchGold(initList, secondList) {
-    let startDudeList = initList
-    let tempList = []
-    let verifiedDudeList = []
+    let dudeList = initList
+    let checkedList = []
 
-    while (startDudeList.length) {
-        const dude = startDudeList.pop();
+    while (dudeList.length) {
+        const dude = dudeList.shift();
 
-        if (!verifiedDudeList.includes(dude.name)) {
-            if (dude.hasGold) {
+        if (dude.hasGold) {
+            
+            console.log(`${dude.name} has gold!`)
 
-                console.log(`${dude.name} has gold!`)
+            return
+        } else {
+            if (!checkedList.includes(dude.name)) {
 
-                return
-            }
+                checkedList.push(dude.name)
     
-            verifiedDudeList.push(dude.name)
-
-            tempList = secondList.filter(el => dude.friendNames.includes(el.name) )
-
-            for (let index = 0; index < tempList.length; index++) {
-                startDudeList.unshift(tempList[index])
+                secondList.forEach(el => {
+                    if (dude.friendNames.includes(el.name)) {
+                        dudeList.push(el)
+                    }
+                })
             }
         }
     }

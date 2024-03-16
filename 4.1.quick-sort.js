@@ -10,11 +10,11 @@ function getRandomArray() {
 
 const array = getRandomArray()
 
-function quickSort(array, baseElement = array[Math.ceil(array.length / 2)]) {
+function quickSort(array, baseElement = array[Math.round(array.length / 2)]) {
 
   let left = []
   let right = []
-  let minIndex = 0
+  let minIndex;
 
   for (let i = 0; i < array.length; i++) {
     if (array[i] < baseElement) {
@@ -44,7 +44,7 @@ function quickSort(array, baseElement = array[Math.ceil(array.length / 2)]) {
     }
   }
 
-  return [...left, baseElement, ...right]
+  console.log([...left, baseElement, ...right])
 }
 
-console.log(quickSort(array, 50000));
+quickSort(array);
