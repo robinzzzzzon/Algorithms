@@ -1,30 +1,22 @@
-const array = [];
+const initArray = [];
 
 for (let index = 1; index < 1001; index++) {
-  array.push(index);
+  initArray.push(index);
 }
 
-function binarySearcher(
-  number,
-  array,
-  minLength = 0,
-  maxLength = array.length - 1
-) {
-  const middle = Math.ceil((maxLength + minLength) / 2);
-  const possibleNumber = array[middle];
+function binarySearcher(array, number, start = 0, finish = array.length - 1) {
+  const middle = Math.round((start + finish) / 2);
 
-  console.log("possibleNumber is: ", possibleNumber);
-
-  if (possibleNumber === number) {
-    console.log("find element is: ", number);
+  if (middle === number) {
+    console.log("find element is: ", middle);
     return;
-  } else if (possibleNumber < number) {
-    minLength = middle + 1;
-  } else if (possibleNumber > number) {
-    maxLength = middle - 1;
+  } else if (middle < number) {
+    start = middle + 1;
+  } else if (middle > number) {
+    finish = middle - 1;
   }
 
-  binarySearcher(number, array, minLength, maxLength);
+  binarySearcher(array, number, start, finish);
 }
 
-binarySearcher(47, array);
+binarySearcher(initArray, 453);

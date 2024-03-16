@@ -11,7 +11,7 @@ function getRandomArray() {
 const array = getRandomArray()
 
 function simpleSorting(array) {
-  let minIndex = 0;
+  let minIndex;
 
   for (let i = 0; i < array.length; i++) {
     minIndex = i;
@@ -23,7 +23,7 @@ function simpleSorting(array) {
     }
   }
 
-  return array;
+  console.log(array);
 }
 
-console.log(simpleSorting(array));
+simpleSorting(array);

@@ -36,10 +36,9 @@ const nextCityArray = [
 
 function searchShortestPath(initCityList, nextCityList, searchCity) {
     const startCityList = initCityList
-    let tempCityList = []
 
     while (startCityList.length) {
-        const city = startCityList.pop()
+        const city = startCityList.shift()
 
         if (city.next === searchCity) {
             console.log(`The shortest path to ${city.next} = ${city.pathIndex}`)
@@ -47,11 +46,11 @@ function searchShortestPath(initCityList, nextCityList, searchCity) {
             return
         }
 
-        tempCityList = nextCityList.filter(el => el.current === city.next)
-
-        for (let index = 0; index < tempCityList.length; index++) {
-            startCityList.unshift(tempCityList[index])
-        }
+        nextCityList.filter(el => {
+            if (el.current === city.next) {
+                startCityList.unshift(el)
+            }
+        })
     }
 }
 
